@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="author" content="Cleam Lee">
+	<title>video deomo</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/page_index.css">
+</head>
+<body>
+	<div class="zg-video-player">
+		<div class="video-wrap">
+			<video src="video/video.mp4" poster="img/poster.png" width="100%" height="100%"></video>
+		</div>
+		<!-- poster -->
+		<div class="video-poster"><img src="img/poster.png" alt=""></div>
+		<!-- loading -->
+		<div class="video-loading">
+			<span>加载中...</span>
+		</div>
+		<!-- info -->
+		<div class="video-info">搞笑视频</div>
+		<!-- button -->
+		<div class="video-button">
+			<span>播放</span>
+		</div>
+		<!-- controls -->
+		<div class="video-controls">
+			<div class="vc-button vc-playpause-button vc-play">
+				<button type="button" title="播放/暂停">
+					<span class="vc-btn-value">播放</span>
+				</button>
+			</div>
+			<div class="vc-time-rail">
+				<span class="vc-time-total">
+					<span class="vc-time-loaded" style="width: 100%;"></span>
+					<span class="vc-time-current" style="width: 32.2823px;">
+						<span class="vc-time-handle"></span>
+					</span>
+				</span>
+				<span class="vc-time-panel">
+					<span class="vc-time-panel-current">00:02</span>
+					<span class="vc-time-panel-split">/</span>
+					<span class="vc-time-panel-total">01:58</span>
+				</span>
+			</div>
+			<!-- <div class="tvp_barrage_switch tvp_none">
+				<div class="tvp_btn_barrage" data-role="tvp-bullet-switch">
+					<div class="tvp_btn_value">弹</div>
+				</div>
+			</div> -->
+			<!-- <div class="vc-button tvp_volume tvp_none">
+				<div class="tvp_btn_volume">
+					<div class="tvp_icon_volume"></div>
+				</div>
+				<div class="tvp_volume_slider">
+					<div class="tvp_volume_range">
+						<div class="tvp_volume_range_current" style="height:50%">
+							<div class="tvp_volume_handle"></div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div class="vc-button vc-fullscreen-button vc-fullscreen">
+				<button type="button" title="切换全屏"><span class="vc-btn-value">全屏</span></button>  
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
