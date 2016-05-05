@@ -1,0 +1,1 @@
+function abc(){console.log("abc")}alert("lizhigao"),abc();
