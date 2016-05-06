@@ -1,6 +1,7 @@
 $(function(){
+	$('.zg-video-player').ZgPlayer();
 
-	ZgVideoPlayer.init();
+	// ZgVideoPlayer.init();
 
 	/*var $videoPlayer = $('.zg-video-player'),
 		$video = $videoPlayer.find('.J-zvp-video'),	// video zepto对象

@@ -1,10 +1,12 @@
 @charset "utf-8";
 
-.zg-video-player{position: relative; width: 100%; overflow: hidden; background-color: #000;}
+.zg-video-player{position: relative; width: 100%; overflow: hidden; background-color: #000; padding-bottom: 56.25%;}
 .zg-video-player.fullscreen{left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1000; position: fixed !important;}
+.zvp-interlayer{position: absolute; top: 0; left: 0; background-color: #000; margin: auto; width: 100%; height: 100%;} 
 /*==== video ====*/
-.zvp-video{position: relative; width: 100%; height: 100%; background-color: #000;}
-.zvp-video video{width: 100%; height: 100%;}
+.zvp-video{position: relative; width: 100%; height: 100%; background-color: #000; overflow: hidden;}
+.zvp-video video{position: relative; display: block; top: 0; left: 0; width: 100%; height: 100%; background: #000;}
+.zvp-video video.video-hide{position: absolute; top: -200%;}
 .zvp-video-shadow{position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;}
 /*==== poster ====*/
 .zvp-poster{position: absolute; z-index: 2; top: 0; left: 0; width: 100%; height: 100%;}
