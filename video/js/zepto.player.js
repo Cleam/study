@@ -128,7 +128,7 @@
                 canplay = true;
             }).on('timeupdate', function(){     // 播放时间更新
                 $timeCurrent.html(scope._convert(video.currentTime));
-                scope.updateProgress();
+                // scope.updateProgress();
             }).on('playing', function(){    //  开始播放了
                 $loading.hide();
             }).on('pause', function(){  //  开始播放了
@@ -137,6 +137,11 @@
 
             // 播放按钮点击事件
             $play.on('click', function(){
+                // window["bdInsertApi"].triggleAd("u2633485");
+                // window["bdInsertApi"].triggleAd("u2633485",function(){
+                    // $loading.show();
+                    // scope.play();
+                // });
                 $loading.show();
                 scope.play();
             });
@@ -157,6 +162,8 @@
                 ctrlTimer = setTimeout(function(){
                     $videoPlayer.addClass('zvp-title-controls-hide');
                 }, 3000);
+                scope.updateProgress();
+                scope.updateLoaded();
             });
 
             // 快进快退事件
@@ -225,11 +232,20 @@
         },
 
         /**
-         * 更新进度条
+         * 更新进度条(播放时间进度更新)
          * @return {[type]} [description]
          */
         updateProgress: function () {
             $progressCurrent.width($progressTotal.width() * video.currentTime / duration);
+        },
+
+        /**
+         * 更新进度条(缓存进度更新)
+         * @return {[type]} [description]
+         */
+        updateLoaded: function(){
+            var buffered = video.buffered.end(0);
+            $progressLoaded.width($progressTotal.width() * buffered / duration);
         },
 
         /**
