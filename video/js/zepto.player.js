@@ -42,6 +42,7 @@
         $timeTotal = null, // 视频总时间  zepto对象
         $timeHandle = null, // 视频总时间  zepto对象
         $fullscreen = null, // 全屏播放  zepto对象
+        $gg = null, // 广告  zepto对象
         ctrlTimer = null,
         startPos = 0,
         touchDis = 0,
@@ -62,21 +63,22 @@
         //将选择器对象赋值给插件，方便后续调用
         this.$element = $(element);
 
-        $videoPlayer = this.$element,
-        $video = $videoPlayer.find('.J-zvp-video'), // video zepto对象
-        video = $video[0],  // video dom对象
-        $loading = $videoPlayer.find('.zvp-overlay-loading'),   // 加载中 zepto对象
-        $videoShadow = $videoPlayer.find('.zvp-video-shadow'),  // video覆盖层 zepto对象
-        $play = $videoPlayer.find('.zvp-overlay-play'), // 播放按钮 zopto对象
-        $poster = $videoPlayer.find('.zvp-poster'), // 视频海报 zepto对象
-        $playPause = $videoPlayer.find('.vc-playpause-button'), // 播放/暂停 zepto对象
-        $progressLoaded = $videoPlayer.find('.vc-time-loaded'), // 视频已加载进度 zepto对象
-        $progressCurrent = $videoPlayer.find('.vc-time-current'), // 视频已播放进度  zepto对象
-        $progressTotal = $videoPlayer.find('.vc-time-total'), // 视频已播放进度  zepto对象
-        $timeCurrent = $videoPlayer.find('.vc-time-panel-current'), // 视频已播放时间  zepto对象
-        $timeTotal = $videoPlayer.find('.vc-time-panel-total'), // 视频总时间  zepto对象
-        $timeHandle = $videoPlayer.find('.vc-time-handle'), // 视频总时间  zepto对象
-        $fullscreen = $videoPlayer.find('.vc-fullscreen-button'), // 全屏播放  zepto对象
+        $videoPlayer = this.$element;
+        $video = $videoPlayer.find('.J-zvp-video'); // video zepto对象
+        video = $video[0];  // video dom对象
+        $loading = $videoPlayer.find('.zvp-overlay-loading');   // 加载中 zepto对象
+        $videoShadow = $videoPlayer.find('.zvp-video-shadow');  // video覆盖层 zepto对象
+        $play = $videoPlayer.find('.zvp-overlay-play'); // 播放按钮 zopto对象
+        $poster = $videoPlayer.find('.zvp-poster'); // 视频海报 zepto对象
+        $playPause = $videoPlayer.find('.vc-playpause-button'); // 播放/暂停 zepto对象
+        $progressLoaded = $videoPlayer.find('.vc-time-loaded'); // 视频已加载进度 zepto对象
+        $progressCurrent = $videoPlayer.find('.vc-time-current'); // 视频已播放进度  zepto对象
+        $progressTotal = $videoPlayer.find('.vc-time-total'); // 视频已播放进度  zepto对象
+        $timeCurrent = $videoPlayer.find('.vc-time-panel-current'); // 视频已播放时间  zepto对象
+        $timeTotal = $videoPlayer.find('.vc-time-panel-total'); // 视频总时间  zepto对象
+        $timeHandle = $videoPlayer.find('.vc-time-handle'); // 视频总时间  zepto对象
+        $fullscreen = $videoPlayer.find('.vc-fullscreen-button'); // 全屏播放  zepto对象
+        $gg = $videoPlayer.find('.zvp-gg');
 
         //进行一些初始化工作
         this.init();
@@ -142,8 +144,23 @@
                     // $loading.show();
                     // scope.play();
                 // });
-                $loading.show();
-                scope.play();
+                // 播放广告
+                $gg.show();
+                var $sec = $gg.find('.seconds'),
+                    total = parseInt($sec.text()),
+                    timer = setInterval(function(){
+                        $sec.text(--total);
+                        if(total <= 0){
+                            // 关闭定时器、广告
+                            clearInterval(timer);
+                            $gg.hide();
+                            // 开始播放视频
+                            $loading.show();
+                            scope.play();
+                        }
+                    }, 1000);
+
+
             });
 
             $playPause.on('click', function(){
