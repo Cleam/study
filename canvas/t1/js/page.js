@@ -19,7 +19,13 @@ $(function(){
 	};
 
 	$reset.on('click', reset);
-	$show.on('click', show);
+	$show.on('click', function(){
+		show(function(){
+			// var img = getPrevNode(canvas);
+			// img.setAttribute('style', 'display:none');
+		});
+		
+	});
 
 	/**
 	 * 初始化
@@ -40,7 +46,7 @@ $(function(){
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		ctx.save();
 		setClippingRegion(clippingRegion);
-		ctx.drawImage(img, 0, 0);
+		ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 		ctx.restore();
 	}
 
@@ -68,14 +74,43 @@ $(function(){
 	 * 显示图片
 	 * @return {[type]} [description]
 	 */
-	function show(){
+	function show(callback){
 		timer = setInterval(function(){
 			clippingRegion.r += 20;
 			if(clippingRegion.r > 2 * Math.max(canvas.width, canvas.height)){
 				clearInterval(timer);
+				callback();
 			}
 			draw(img, clippingRegion);
 		}, 30);
 	}
+
+/**
+ * 获取目标节点的上一个兄弟节点
+ * @param  {[type]} node 目标节点
+ * @return {[type]}      [description]
+ */
+function getPrevNode(node){
+	if(!node){return;}
+	node = node.previousSibling;
+	while(node && node.nodeType !== 1){	// element
+		node = node.previousSibling;
+	}
+	return node;
+}
+
+/**
+ * 获取目标节点的下一个兄弟节点
+ * @param  {[type]} node 目标节点
+ * @return {[type]}      [description]
+ */
+function getNextNode(node){
+	if(!node){return;}
+	node = node.nextSibling;
+	while(node && node.nodeType !== 1){
+		node = node.nextSibling;
+	}
+	return node;
+}
 
 });
