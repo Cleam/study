@@ -47,7 +47,8 @@
         startPos = 0,
         touchDis = 0,
         duration = 0,
-        canplay = false;
+        canplay = false,
+        ggFlag = true;
 
     /**
      * 定义插件的构造方法
@@ -133,42 +134,41 @@
                 // scope.updateProgress();
             }).on('playing', function(){    //  开始播放了
                 $loading.hide();
+                $poster.hide();
+                $play.hide();
+                $video.hasClass('video-hide') && $video.removeClass('video-hide');
+                $playPause.removeClass('vc-play').addClass('vc-pause');
             }).on('pause', function(){  //  开始播放了
                 $playPause.removeClass('vc-pause').addClass('vc-play');
             });
 
             // 播放按钮点击事件
             $play.on('click', function(){
-                // window["bdInsertApi"].triggleAd("u2633485");
-                // window["bdInsertApi"].triggleAd("u2633485",function(){
-                    // $loading.show();
-                    // scope.play();
-                // });
-                // 播放广告
-                $gg.show();
-                var $sec = $gg.find('.seconds'),
-                    total = parseInt($sec.text()),
-                    timer = setInterval(function(){
-                        $sec.text(--total);
-                        if(total <= 0){
-                            // 关闭定时器、广告
-                            clearInterval(timer);
-                            $gg.hide();
-                            // 开始播放视频
-                            $loading.show();
-                            scope.play();
-                        }
-                    }, 1000);
+                $poster.hide();
+                $play.hide();
+                $video.hasClass('video-hide') && $video.removeClass('video-hide');
+                if(ggFlag){
+                    scope._showGG(function(){
+                        // 开始播放视频
+                        $loading.show();
+                        scope.videoPlay();
+                        ggFlag = false;
+                    });
+                } else {
+                    // 开始播放视频
+                    $loading.show();
+                    scope.videoPlay();
+                }
 
 
             });
 
             $playPause.on('click', function(){
                 if(video.paused){
-                    scope.play();
+                    scope.videoPlay();
                 } else {
                     $play.show();
-                    scope.pause();
+                    scope.videoPause();
                 }
             });
 
@@ -189,7 +189,7 @@
                 startPos = event.targetTouches[0].pageX;
                 progressWidth = $progressCurrent.width();
                 curTime = video.currentTime;
-                scope.pause();
+                scope.videoPause();
             }).on('touchmove', function(event){
                 var endPos = event.targetTouches[0].pageX;
                 touchDis = endPos - startPos;
@@ -200,13 +200,17 @@
                     $progressCurrent.width(progressWidth - Math.abs(touchDis));
                     video.currentTime = curTime - (duration * Math.abs(touchDis) / $progressTotal.width());
                 }
+                ctrlTimer && clearTimeout(ctrlTimer);
             }).on('touchend', function(event){
                 if(touchDis > 0){
                     video.currentTime = curTime + (duration * touchDis / $progressTotal.width());
                 } else {
                     video.currentTime = curTime - (duration * Math.abs(touchDis) / $progressTotal.width());
                 }
-                scope.play();
+                scope.videoPlay();
+                ctrlTimer = setTimeout(function(){
+                    $videoPlayer.addClass('zvp-title-controls-hide');
+                }, 3000);
             });
 
             // 全屏播放
@@ -222,28 +226,52 @@
         },
 
         /**
+         * 展示广告
+         * @param  {Function} callback 回调函数
+         * @return {[type]}            [description]
+         */
+        _showGG: function(callback){
+            // 播放广告
+            $gg.show();
+            var $sec = $gg.find('.seconds'),
+                total = parseInt($sec.text()),
+                timer = null;
+            timer = setInterval(function(){
+                $sec.text(--total);
+                if(total <= 0){
+                    // 关闭广告
+                    $gg.hide();
+                    callback();
+                    // 关闭定时器
+                    clearInterval(timer);
+                }
+            }, 1000);
+        },
+
+        /**
          * 播放
-         * @param  {[type]} ct [description]
+         * @param  {Number} ct [description]
          * @return {[type]}    [description]
          */
-        play: function (ct) {
-            if(canplay){
-                $play.hide();
-                $poster.hide();
-                $playPause.removeClass('vc-play').addClass('vc-pause');
-                $video.removeClass('video-hide');
-                if(ct){
-                    video.currentTime = ct;
-                }
-                video.play();
+        videoPlay: function (ct) {
+            if(ct && (typeof ct === 'number')){
+                video.currentTime = ct;
             }
+            video.play();
+            /*var timer = setInterval(function(){
+                if(video.paused){
+                    $playPause.trigger('click');
+                    // video.play();
+                    clearInterval(timer);
+                }
+            }, 500);*/
         },
 
         /**
          * 暂停
          * @return {[type]} [description]
          */
-        pause: function () {
+        videoPause: function () {
             $playPause.removeClass('vc-pause').addClass('vc-play');
             video.pause();
         },
@@ -261,8 +289,20 @@
          * @return {[type]} [description]
          */
         updateLoaded: function(){
-            var buffered = video.buffered.end(0);
-            $progressLoaded.width($progressTotal.width() * buffered / duration);
+            // var buffered = video.buffered.end(0);
+            // $progressLoaded.width($progressTotal.width() * buffered / duration);
+            console.log(this.getEnd());
+            $progressLoaded.width($progressTotal.width() * this.getEnd() / duration);
+        },
+
+        // 获取视频已经下载的时长
+        getEnd: function() {
+            var end = 0;
+            try {
+                end = video.buffered.end(0) || 0;
+                end = parseInt(end * 1000 + 1) / 1000;
+            } catch(e) {}
+            return end;
         },
 
         /**
