@@ -159,8 +159,6 @@
                     $loading.show();
                     scope.videoPlay();
                 }
-
-
             });
 
             $playPause.on('click', function(){
