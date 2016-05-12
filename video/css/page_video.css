@@ -5,7 +5,7 @@
  * @date 2016-05-12
  */
 body{padding-top: 0 !important; color: #333; background-color: #f8f8f8;}
-.content{padding-bottom: 0.2rem; background-color: #fff;}
+.content{padding-bottom: 0.2rem; background-color: #fff; border-bottom: 1px solid #e5e5e5;}
 .video-wrap{position: relative; width: 100%; overflow: hidden; background-color: #000; padding-bottom: 56.25%;}
 .video-box{position: absolute; top: 0; left: 0; background-color: #000; margin: auto; width: 100%; height: 100%;}
 .video-box .video{position: relative; display: block; top: 0; left: 0; width: 100%; height: 100%; background: #000;}
