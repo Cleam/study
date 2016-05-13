@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+.zg-video-player{position: relative; width: 100%; overflow: hidden; background-color: #000; padding-bottom: 56.25%;}
+.zg-video-player.fullscreen{left: 0px; top: 0px; width: 100%; height: 100%; z-index: 1000; position: fixed !important;}
+.zvp-interlayer{position: absolute; top: 0; left: 0; background-color: #000; margin: auto; width: 100%; height: 100%;} 
+/*==== video ====*/
+.zvp-video{position: relative; width: 100%; height: 100%; background-color: #000; overflow: hidden;}
+.zvp-video video{position: relative; display: block; top: 0; left: 0; width: 100%; height: 100%; background: #000;}
+.zvp-video video.video-hide{position: absolute; top: -200%;}
+.zvp-video-shadow{position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2;}
+/*==== poster ====*/
+.zvp-poster{position: absolute; z-index: 2; top: 0; left: 0; width: 100%; height: 100%;}
+.zvp-poster img{width: 100%; height: 100%;}
+/*==== title ====*/
+.zvp-title{position: absolute; left: 0; top: 0; width: 100%; line-height: 35px; z-index: 20; background: rgba(23,23,23,.6); /* background: -moz-linear-gradient(top,  #000000 0%, rgba(255,255,255,0) 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,rgba(255,255,255,0))); background: -webkit-linear-gradient(top,  #000000 0%,rgba(255,255,255,0) 100%); background: -o-linear-gradient(top,  #000000 0%,rgba(255,255,255,0) 100%); background: -ms-linear-gradient(top,  #000000 0%,rgba(255,255,255,0) 100%); background: linear-gradient(to bottom, #000000 0%,rgba(255,255,255,0) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='rgba(255,255,255,0)',GradientType=0); -webkit-transform: translateZ(0); */ -webkit-transition: top .3s ease; transition: top .3s ease;}
+.zvp-title-controls-hide .zvp-title{top: -35px;}
+.zvp-title h1{position: relative; font-size: 14px; color: #bbbbbb; padding: 0 15px; z-index: 20; line-height: 35px;}
+/*==== 播放按钮 ====*/
+.zvp-overlay-play{position: absolute; z-index: 5; left: 0; right: 0; top: 0; bottom: 0; width: 50px; height: 50px; line-height: 50px; margin: auto !important; overflow: hidden; font-size: 0; text-align: center; background: rgba(23,23,23,.6); border-radius: 50%; cursor: pointer;}
+.zvp-overlay-play span{position: absolute; display: block; width: 0; height: 0; left: 17px; top: 14px; margin: auto; overflow: hidden; vertical-align: middle; border: 20px solid transparent; border-width: 12px 21px; border-left-color: #fff;}
+/*==== loading ====*/
+.zvp-overlay-loading{position: absolute; z-index: 5; left: 0; right: 0; top: 0; bottom: 0; margin: auto; width: 40px; height: 40px; background: rgba(0,0,0,.6) url("../img/loading_small.gif") center center no-repeat; -webkit-background-size: 25px 25px; background-size: 25px 25px; border-radius: 2px; font-size: 0;}
+/*==== controls ====*/
+.zvp-controls{position: absolute; display: table; z-index: 6; bottom: 0; left: 0; width: 100%; height: 40px; -webkit-transform: translateZ(0); -webkit-transition: bottom .3s ease; transition: bottom .3s ease; background: rgba(23,23,23,.6); /* background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, #000000 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,#000000)); background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,#000000 100%); background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,#000000 100%); background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,#000000 100%); background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,#000000 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(255,255,255,0)', endColorstr='#000000',GradientType=0);  */}
+.zvp-title-controls-hide .zvp-controls{bottom: -40px;}
+/* play/pause button */
+.vc-button{background: none; cursor: pointer;}
+.vc-playpause-button{display: table-cell; width: 46px; height: 100%; vertical-align: top;}
+.vc-playpause-button button{display: block; width: 100%; height: 100%; padding: 0; border: 0 none; background: none; text-align: center; font-size: 0; cursor: pointer;}
+.vc-playpause-button button .vc-btn-value{display: inline-block; width: 0; height: 0; margin-left: 16px; vertical-align: middle; background: none; border: 15px solid transparent; border-width: 10px 15px; border-left-color: #fff; font-size: 0; color: transparent;}
+.vc-pause button .vc-btn-value{width: 10px; height: 15px; border: 0 none; margin-left: 0; border-left: 2px solid #fff; border-right: 2px solid #fff;}
+
+/* time rail */
+.vc-time-rail{position:relative;display:table-cell;height:100%;padding:0;vertical-align:top}
+.vc-time-total{position:relative;display:block;top:18px;width:100%;height:4px;background:rgba(34,34,34,.9);cursor:pointer}
+.vc-time-loaded,.vc-time-current{position:absolute;left:0;top:1px;z-index:2;display:block;max-width:100%!important;height:2px;background:#FF9000}
+.vc-time-loaded{z-index:1;background:rgba(255,255,255,.2)}
+.vc-time-handle{position:absolute;z-index:3;top:-11px;right:-9px;display:block;width:27px;height:27px;overflow:hidden;cursor:pointer}
+.vc-time-handle:after{content:'';position:absolute;left:6px;top:5px;width:15px;height:15px;background:#F3F5F7;background-image:-webkit-radial-gradient(50% 50%,circle closest-side,#F7F9FB 31%,#D2D4D5 100%);-webkit-background-clip:content-box;background-clip:content-box;border-radius:100%;border-top-left-radius:100%;border-top-right-radius:100%;border-bottom-left-radius:100%;border-bottom-right-radius:100%}
+.vc-time-panel{position:absolute;right:0;bottom:3px;z-index:2;font-size:10px;color:#888;font-family:PingFangSC-Light,HelveticaNeue-Light,arial}
+.vc-time-panel span{float:left}
+.vc-time-panel .vc-time-panel-current{color:#DEDEDF}
+
+/* fullscreen */
+.vc-fullscreen-button{display: table-cell; width: 50px; height: 100%; background-position: left 0;}
+.vc-fullscreen-button button{display: block; width: 100%; height: 100%; padding: 0; border: 0 none; background: none; text-align: center; font-size: 0; cursor: pointer; position: relative;}
+.vc-fullscreen-button button:before{content:'';position:absolute;right:17px;top:11px;width:4px;height:4px;border-right:2px solid #fff;border-top:2px solid #fff;-webkit-box-sizing:content-box;box-sizing:content-box}
+.vc-fullscreen-button button:after{content:'';position:absolute;top:11px;right:18px;width:8px;height:2px;background-color:#fff;-webkit-transform:rotate(-45deg);-webkit-transform-origin:right center}
+.vc-fullscreen-button .vc-btn-value:before {content:'';position:absolute;left:17px;bottom:14px;width:4px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;-webkit-box-sizing:content-box;box-sizing:content-box}
+.vc-fullscreen-button .vc-btn-value:after {content:'';position:absolute;bottom:14px;left:18px;width:8px;height:2px;background-color:#fff;-webkit-transform:rotate(-45deg);-webkit-transform-origin:left center}
+.vc-unfullscreen button:before{top:12px;right:18px;border:none;border-bottom:2px solid #fff;border-left:2px solid #fff}
+.vc-unfullscreen .vc-btn-value:before {bottom:15px;left:18px;border:none;border-top:2px solid #fff;border-right:2px solid #fff}
+
+/* gg */
+.zvp-gg{position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 6;}
+.zvp-gg .gg{position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block;}
+.zvp-gg .gg img{display: block; width: 100%; height: 100%;}
+.zvp-gg .gg .more{position: absolute; right: 10px; bottom: 4px; width: 86px; height: 30px; line-height: 30px; font-size: 16px; color: #fff; display: block; background-color: rgba(0,0,0,.6); border-radius: 5px; text-align: center;}
+.zvp-gg .time{position: absolute; right: 10px; top: 4px; width: 62px; height: 30px; line-height: 30px; color: #fff; font-size: 14px; background-color: rgba(0,0,0,0.6); border-radius:5px;}
+.zvp-gg .time .seconds{color: #d00; width: 20px; display: inline-block; text-align: center; vertical-align: middle;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

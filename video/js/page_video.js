@@ -4,7 +4,7 @@ $(function(){
 		videoLogUrl = 'http://toutiao.eastday.com/getwapdata/videoact';		// 视频统计接口
 
 	function Video(){
-		this.qid = GLOBAL.Et.qid || GLOBAL.Util.getQueryString('qid') || Cookies.get('qid');	// 渠道ID
+		this.qid = GLOBAL.Util.getQueryString('qid') || Cookies.get('qid') || 'null';	// 渠道ID
 		this.userId = '';
 		this.osType = GLOBAL.Util.getOsType();
 		this.browserType = GLOBAL.Util.getBrowserType();
@@ -25,6 +25,8 @@ $(function(){
 		if(!scope.userId){
 			scope._setUid();
 		}
+		/* 视频事件监听 */
+		scope.addVideoListener($('#J_video'));
 	};
 
 	Video.prototype._setQid = function(qid) {
@@ -74,13 +76,15 @@ $(function(){
      * @param  {String} param 必需 - 参数(qid,uid,osType,browserType,url,duration,playingTime,currentTime,action)
      */
     Video.prototype.sendVideoLog = function(param){
+    	console.log('param::\n', param);
+    	console.log('param::\n', encodeURIComponent(param));
     	if(!param){
     		return;
     	}
 		$.ajax({
 			url: videoLogUrl,
 			data: {
-				param: param
+				param: encodeURIComponent(param)
 			},
 			dataType: 'jsonp',
 			jsonp: 'jsonpcallback',
@@ -108,7 +112,7 @@ $(function(){
 					videoType = $video.attr('data-type'),
 					playingTime = $video.attr('data-playingTime') ? $video.attr('data-playingTime') : 'null',
 					currentTime = Math.floor(video.currentTime * 1000),	// 当前播放时间位置
-					param = scope.qid + '\t' + scope.userId + '\t' + 'news' + '\t' + 'eastday_wapnews' + '\t' + 'null' + '\t' + videoType + '\t' + scope.osType + '\t' + idx + '\t' + scope.browserType + '\t' + src + '\t' + duration + '\t' + playingTime + '\t' + currentTime + '\tplay';
+					param = scope.qid + '\t' + scope.userId + '\t' + 'news' + '\t' + 'eastday_wapnews' + '\t' + 'null' + '\t' + (videoType || 'null') + '\t' + scope.osType + '\t' + (idx || 'null') + '\t' + scope.browserType + '\t' + src + '\t' + duration + '\t' + playingTime + '\t' + currentTime + '\t' + 'play';
 				// 用于记录实际播放时长
 				$video.attr('data-updateTime', +new Date());
 				scope.sendVideoLog(param);
@@ -127,7 +131,7 @@ $(function(){
 					videoType = $video.attr('data-type'),
 					playingTime = $video.attr('data-playingTime') ? $video.attr('data-playingTime') : 'null',
 					currentTime = Math.floor(video.currentTime * 1000),	// 当前播放时间位置
-					param = scope.qid + '\t' + scope.userId + '\t' + 'news' + '\t' + 'eastday_wapnews' + '\t' + scope.newsType + '\t' + videoType + '\t' + scope.osType + '\t' + idx + '\t' + scope.browserType + '\t' + src + '\t' + duration + '\t' + playingTime + '\t' + currentTime + '\tpause';
+					param = scope.qid + '\t' + scope.userId + '\t' + 'news' + '\t' + 'eastday_wapnews' + '\t' + 'null' + '\t' + videoType + '\t' + scope.osType + '\t' + (idx || 'null') + '\t' + scope.browserType + '\t' + src + '\t' + duration + '\t' + playingTime + '\t' + currentTime + '\t' + 'pause';
 				// 用于记录实际播放时长
 				scope.sendVideoLog(param);
 			} catch(e){
