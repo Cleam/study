@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="author" content="Cleam Lee">
+	<title>继承</title>
+	<style>
+		*{margin: 0; padding: 0}
+		html, body{width: 100%; height: 100%;}
+	</style>
+</head>
+<body>
+	<canvas height="600" width="800" id="canvas"></canvas>
+	<script>
+		/**
+		 * 点
+		 * @param {[type]} x [description]
+		 * @param {[type]} y [description]
+		 */
+		function Point(x, y){
+			this.x = x;
+			this.y = y;
+		}
+		/**
+		 * 线
+		 * @param {[type]} p1 [description]
+		 * @param {[type]} p2 [description]
+		 */
+		function Line(p1, p2){
+			this.p1 = p1;
+			this.p2 = p2;
+			this.length = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
+		}
+		/**
+		 * 形状
+		 */
+		function Shape(){
+			this.points = [];
+			this.lines = [];
+			this.init();
+		}
+		Shape.prototype = {
+			constructor: Shape,
+			/**
+			 * [init description]
+			 * @return {[type]} [description]
+			 */
+			init: function(){
+				if(typeof this.context === 'undefined'){
+					var canvas = document.getElementById('canvas');
+					Shape.prototype.context = canvas.getContext('2d');
+				}
+			},
+			/**
+			 * 绘制一个形状（通过循环this.points）
+			 * @return {[type]} [description]
+			 */
+			draw: function(){
+				var ctx = this.context;
+				ctx.strokeStyle = this.getColor();
+				ctx.beginPath();
+				ctx.moveTo(this.points[0].x, this.points[0].y);
+				for (var i = 1; i < this.points.length; i++) {
+					ctx.lineTo(this.points[i].x, this.points[i].y);
+				}
+				ctx.closePath();
+				ctx.stroke();
+			},
+			/**
+			 * 生成一个随机的颜色
+			 * @return {[type]} [description]
+			 */
+			getColor: function(){
+				var rgb = [];
+				for (var i = 0; i < 3; i++) {
+					rgb[i] = Math.round(255 * Math.random());
+				}
+				return 'rgb(' + rgb.join(',') + ')';
+			},
+			/**
+			 * [getLines description]
+			 * @return {[type]} [description]
+			 */
+			getLines: function(){
+				if (this.lines.length > 0) {
+					return this.lines;
+				}
+				var lines = [];
+				for (var i = 0; i < this.points.length; i++) {
+					lines[i] = new Line(this.points[i], this.points[i+1] ? this.points[i+1] : this.points[0]);
+				}
+				this.lines = lines;
+				return lines;
+			},
+			/**
+			 * [getArea description]
+			 * @return {[type]} [description]
+			 */
+			getArea: function(){},
+			/**
+			 * 计算周长
+			 * @return {[type]} [description]
+			 */
+			getPerimeter: function(){
+				var lines = this.getLines();
+				var perim = 0;
+				for (var i = 0; i < lines.length; i++) {
+					perim += lines[i].length;
+				}
+				return perim;
+			}
+		};
+		/**
+		 * 三角形构造器
+		 * @param {[type]} a [description]
+		 * @param {[type]} b [description]
+		 * @param {[type]} c [description]
+		 */
+		function Triangle(a, b, c){
+			this.points = [a, b, c];
+			this.getArea = function(){
+				var p = this.getPerimeter();
+				var s = p / 2;
+				return Math.sqrt(s * (s - this.lines[0].length) * (s - this.lines[1].length) * (s - this.lines[2].length));
+			}
+		}
+		/**
+		 * 矩形
+		 * @param {[type]} p      [description]
+		 * @param {[type]} side_a [description]
+		 * @param {[type]} side_b [description]
+		 */
+		function Rectangle(p, side_a, side_b){
+			this.points = [
+				p,
+				new Point(p.x + side_a, p.y),			// top right
+				new Point(p.x + side_a, p.y + side_b),	// bottom right
+				new Point(p.x, p.y + side_b)			// bottom left
+			];
+			this.getArea = function(){
+				return side_a * side_b;
+			}
+		}
+		/**
+		 * 正方形
+		 * @param {[type]} p    [description]
+		 * @param {[type]} side [description]
+		 */
+		function Square(p, side){
+			Rectangle.call(this, p, side, side);
+		}
+
+		(function(){
+			var s = new Shape();
+			Triangle.prototype = s;
+			Rectangle.prototype = s;
+			Square.prototype = s;
+		})();
+	</script>
+
+	<script>
+		var p1 = new Point(100, 100);
+		var p2 = new Point(300, 100);
+		var p3 = new Point(200, 0);
+
+		var t = new Triangle(p1, p2, p3);
+		t.draw();
+
+		var r = new Rectangle(new Point(200, 200), 50, 100);
+		r.draw();
+
+		var s = new Square(new Point(130, 130), 50);
+		s.draw();
+
+		new Square(p1, 200).draw();
+	</script>
+</body>
+</html>
