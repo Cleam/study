@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="author" content="Cleam Lee">
+	<title>video deomo</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/page_index.css">
+</head>
+<body>
+	<div class="zg-video-player zvp-title-controls-hide">
+		<div class="zvp-interlayer">
+			<div class="zvp-video">
+				<!--  poster="img/poster.png" -->
+				<video class="J-zvp-video video-hide" src="video/video.mp4" type="video/mp4" width="100%" height="100%"></video>
+				<div class="zvp-video-shadow"></div>
+			</div>
+			<!-- poster -->
+			<div class="zvp-poster"><img src="img/poster.png" alt=""></div>
+			<!-- info -->
+			<div class="zvp-title"><h1>测试视频</h1></div>
+			<!-- button -->
+			<div class="zvp-overlay-play">
+				<span>播放</span>
+			</div>
+			<!-- loading -->
+			<div class="zvp-overlay-loading none">
+				<span>加载中...</span>
+			</div>
+			<!-- controls -->
+			<div class="zvp-controls">
+				<div class="vc-button vc-playpause-button vc-play">
+					<button type="button" title="播放/暂停">
+						<span class="vc-btn-value">播放</span>
+					</button>
+				</div>
+				<div class="vc-time-rail">
+					<span class="vc-time-total">
+						<span class="vc-time-loaded"></span>
+						<span class="vc-time-current">
+							<span class="vc-time-handle"></span>
+						</span>
+					</span>
+					<span class="vc-time-panel">
+						<span class="vc-time-panel-current">00:02</span>
+						<span class="vc-time-panel-split">/</span>
+						<span class="vc-time-panel-total">01:58</span>
+					</span>
+				</div>
+				<div class="vc-button vc-fullscreen-button vc-fullscreen">
+					<button type="button" title="切换全屏"><span class="vc-btn-value">全屏</span></button>  
+				</div>
+			</div>
+			<!-- gg -->
+			<div class="zvp-gg none">
+				<!-- <div class="gg">
+					<script type="text/javascript">var cpro_id = "u2633485";</script>
+					<script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+				</div> -->
+				<a class="gg" href="http://toutiao.eastday.com/">
+					<img src="img/video_poster.jpg" alt="" width="100%">
+					<span class="more">了解详情&gt;&gt;</span>
+				</a>
+				<p class="time">广告<span class="seconds">3</span>秒</p>
+			</div>
+		</div>
+	</div>
+
+	
+	<!-- <div class="gg-wrap" style="width: 100%; height: 100px;">
+		<script type="text/javascript"> 
+		    var cpro_id = "u2633476";
+		</script>
+		<script src="http://cpro.baidustatic.com/cpro/ui/cm.js" type="text/javascript"></script>
+	</div> -->
+
+
+
+	<script src="js/zepto.min.js"></script>
+	<script src="js/zepto.player.js"></script>
+	<script src="js/page_index.js"></script>
+</body>
+</html>
