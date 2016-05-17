@@ -1,0 +1,742 @@
+html{
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fafafa;
+  background: -webkit-linear-gradient(top,#fafafa,#fff);
+}
+a,
+a img {
+  border: 0px;
+  outline: none;
+  color: #000;
+  text-decoration: none;
+}
+/*--------------------------------------*/
+#add_scrolling {
+  width: 128px;
+  height: 54px;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  margin-left: -64px;
+  background: url('../images/scrolling.png');
+}
+#add_nav {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  margin-top: -80px;
+}
+#add_nav div {
+  width: 8px;
+  height: 8px;
+  background: url('../images/dot.png');
+  margin-bottom: 30px;
+}
+.on {
+  background: url('../images/dot_on.png') !important;
+}
+/*--------------------------------------*/
+@-webkit-keyframes orbloop {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes orbloop {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes orbmove {
+  from {
+    -webkit-transform: translateX(0px);
+  }
+  to {
+    -webkit-transform: translateX(-2000px);
+  }
+}
+@keyframes orbmove {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-2000px);
+  }
+}
+#bg {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  top: 50%;
+  left: 50%;
+  margin-left: -500px;
+  margin-top: -500px;
+}
+#bg div div {
+  position: absolute;
+}
+#bg {
+  opacity: 0;
+}
+#bg .row1 div {
+  -webkit-animation: orbmove 48s linear infinite;
+  animation: orbmove 96s linear infinite;
+}
+#bg .row1 .orb1 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  margin-left: -30px;
+  margin-top: -380px;
+}
+#bg .row1 .orb1 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row1 .orb2 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: 450px;
+  margin-top: 50px;
+}
+#bg .row1 .orb2 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row1 .orb1c {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  margin-left: 1970px;
+  margin-top: -380px;
+}
+#bg .row1 .orb1c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 60px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row1 .orb2c {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: 2450px;
+  margin-top: 50px;
+}
+#bg .row1 .orb2c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row2 div {
+  -webkit-animation: orbmove 24s linear infinite;
+  animation: orbmove 48s linear infinite;
+}
+#bg .row2 .orb1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-left: -500px;
+  margin-top: -300px;
+}
+#bg .row2 .orb1 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 200px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row2 .orb2 {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  left: 50%;
+  margin-left: 175px;
+  margin-top: -125px;
+}
+#bg .row2 .orb2 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 250px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row2 .orb1c {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-left: 1500px;
+  margin-top: -300px;
+}
+#bg .row2 .orb1c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 200px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row2 .orb2c {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  margin-left: 2100px;
+  margin-top: -200px;
+}
+#bg .row2 .orb2c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 400px;
+  background: -webkit-linear-gradient(top, #ffffff, #dedede);
+  background: linear-gradient(to bottom, #ffffff, #dedede);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row3 div {
+  -webkit-animation: orbmove 12s linear infinite;
+  animation: orbmove 24s linear infinite;
+}
+#bg .row3 .orb1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-left: 850px;
+  margin-top: -300px;
+}
+#bg .row3 .orb1 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 300px;
+  background: -webkit-linear-gradient(top, #dedede, #ffffff);
+  background: linear-gradient(to bottom, #dedede, #ffffff);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row3 .orb2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+#bg .row3 .orb2 div {
+  width: 100%;
+  height: 100%;
+  border-radius: 600px;
+  background: -webkit-linear-gradient(top, #dedede, #ffffff);
+  background: linear-gradient(to bottom, #dedede, #ffffff);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row3 .orb1c {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-left: 2850px;
+  margin-top: -300px;
+}
+#bg .row3 .orb1c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 300px;
+  background: -webkit-linear-gradient(top, #dedede, #ffffff);
+  background: linear-gradient(to bottom, #dedede, #ffffff);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+#bg .row3 .orb2c {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  margin-left: 2000px;
+  margin-top: 0px;
+}
+#bg .row3 .orb2c div {
+  width: 100%;
+  height: 100%;
+  border-radius: 600px;
+  background: -webkit-linear-gradient(top, #dedede, #ffffff);
+  background: linear-gradient(to bottom, #dedede, #ffffff);
+  -webkit-animation: orbloop 6s linear infinite;
+  animation: orbloop 6s linear infinite;
+}
+/*--------------------------------------*/
+#p0,
+#p1,
+#p2,
+#p3,
+#p3_point {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  top: 50%;
+  left: 50%;
+  margin-left: -512px;
+  margin-top: -384px;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+}
+#p0 {
+  position: absolute;
+  width: 1024px;
+  height: 768px;
+  top: 50%;
+  left: 50%;
+  margin-left: -512px;
+  margin-top: -434px;
+}
+#p0_t_2 {
+  perspective: 1000px;
+}
+#p0_t_1 {
+  position: absolute;
+  width: 313px;
+  height: 46px;
+  top: 50%;
+  left: 50%;
+  margin-left: -406.5px;
+  margin-top: -223px;
+  background: url('../images/title2_1.png') no-repeat;
+  opacity: 0;
+}
+#p0_t_2 {
+  position: absolute;
+  width: 880px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  margin-left: -390px;
+  margin-top: -60px;
+  text-align: center;
+}
+#p0_t_2 div {
+  position: absolute;
+  width: 880px;
+  height: 320px;
+}
+#subtitle {
+  display: block;
+  position: absolute;
+  width: 517px;
+  height: 23px;
+  top: 50%;
+  left: 50%;
+  margin-left: -258.5px;
+  margin-top: 128.5px;
+  opacity: 0;
+  background: url('../images/title2_3.png') no-repeat;
+}
+#slogan_1 {
+  width: 880px;
+  height: 320px;
+  background: url('../images/skin.png');
+}
+#slogan_2 {
+  width: 880px;
+  height: 320px;
+  background: url('../images/skin.gif');
+}
+#slogan_3 {
+  width: 880px;
+  height: 320px;
+  background: url('../images/banner_dark_2.png');
+}
+#p0_btn {
+  position: absolute;
+  width: 216px;
+  height: 70px;
+  top: 50%;
+  left: 50%;
+  margin-left: 192px;
+  margin-top: -235px;
+  opacity: 0;
+}
+#p0_btn > span {
+  display: inline-block;
+  font-size: 14px;
+  font-family: '微软雅黑', 'Helvetica';
+  color: #888;
+  width: 216px;
+  text-align: center;
+  margin-top: 10px;
+}
+/*p1------------------------*/
+#p1_t_1 {
+  position: absolute;
+  width: 157px;
+  height: 306px;
+  top: 50%;
+  left: 50%;
+  margin-left: -78.5px;
+  margin-top: -303px;
+  background: url('../images/p1t1.png');
+}
+#p1_t_2 {
+  position: absolute;
+  width: 514px;
+  height: 272px;
+  top: 50%;
+  left: 50%;
+  margin-left: -257px;
+  margin-top: 14px;
+  background: url('../images/p1t2.png');
+}
+#p1_ui_0 {
+  position: absolute;
+  width: 923px;
+  height: 80px;
+  top: 50%;
+  left: 50%;
+  margin-left: -461.5px;
+  margin-top: -140px;
+  background: url('../images/p1ui0.png');
+  -webkit-transform-origin: center bottom;
+  -moz-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+/*#p1_ui_1{
+    .center(512px,229px,-190px,-120px);
+    background: url('../images/p1ui1.png');
+}
+#p1_ui_2{
+    .center(512px,229px,-190px,-120px);
+    background: url('../images/p1ui0.png');
+}*/
+/*p2------------------------*/
+#p2_t_1 {
+  position: absolute;
+  width: 390px;
+  height: 86px;
+  top: 50%;
+  left: 50%;
+  margin-left: -195px;
+  margin-top: 37px;
+  background: url('../images/p2t1.png');
+}
+#p2_t_2 {
+  position: absolute;
+  width: 514px;
+  height: 136px;
+  top: 50%;
+  left: 50%;
+  margin-left: -257px;
+  margin-top: 92px;
+  opacity: 0;
+}
+#p2_pop {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
+  /*transform: rotate(30deg) translateX(-100px);*/
+  /*-webkit-transform: rotate(30deg) translateX(-100px);*/
+}
+#p2_pop_1 {
+  position: absolute;
+  width: 172px;
+  height: 172px;
+  top: 50%;
+  left: 50%;
+  margin-left: -236px;
+  margin-top: -286px;
+  background: url('../images/p2pop1.png');
+}
+#p2_pop_2 {
+  position: absolute;
+  width: 73px;
+  height: 73px;
+  top: 50%;
+  left: 50%;
+  margin-left: -226.5px;
+  margin-top: -56.5px;
+  background: url('../images/p2pop2.png');
+}
+#p2_pop_3 {
+  position: absolute;
+  width: 337px;
+  height: 337px;
+  top: 50%;
+  left: 50%;
+  margin-left: -198.5px;
+  margin-top: -288.5px;
+  background: url('../images/p2pop3.png');
+}
+#p2_pop_4 {
+  position: absolute;
+  width: 269px;
+  height: 269px;
+  top: 50%;
+  left: 50%;
+  margin-left: 75.5px;
+  margin-top: -254.5px;
+  background: url('../images/p2pop4.png');
+}
+#title3 {
+  position: absolute;
+  width: 465px;
+  height: 100px;
+  top: 50%;
+  left: 50%;
+  margin-left: -412.5px;
+  margin-top: 10px;
+}
+#title3_1 {
+  position: absolute;
+  width: 800px;
+  height: 91px;
+  top: 50%;
+  left: 50%;
+  margin-left: -570px;
+  margin-top: 134.5px;
+  text-align: center;
+  font-family: 微软雅黑;
+  font-size: 16px;
+  opacity: .7;
+}
+#p3ui {
+  position: absolute;
+  width: 1440px;
+  height: 768px;
+  top: 50%;
+  left: 50%;
+  margin-left: -270px;
+  margin-top: -284px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  background: white;
+  -webkit-perspective: 1000;
+}
+#p3tab {
+  position: absolute;
+  width: 435px;
+  height: 72px;
+  top: 50%;
+  left: 50%;
+  margin-left: -627.5px;
+  margin-top: -356px;
+  -webkit-transform: translateZ(100px);
+}
+#p3bar {
+  width: 1440px;
+  height: 100px;
+  background: rgba(0, 0, 0, 0.05);
+  margin-top: 120px;
+}
+#p3bar img {
+  margin: 30px;
+}
+#p3bar img:first-of-type {
+  margin: 30px 20px 30px 40px;
+}
+#p3bar img:last-of-type {
+  margin: 30px 20px;
+}
+#p3shadow {
+  position: absolute;
+  width: 510px;
+  height: 178px;
+  top: 50%;
+  left: 50%;
+  margin-left: -705px;
+  margin-top: -379px;
+  -webkit-transform: translateZ(50px);
+}
+#gotomac {
+  position: absolute;
+  width: 701px;
+  height: 86px;
+  top: 50%;
+  left: 50%;
+  margin-left: -330.5px;
+  margin-top: 67px;
+  background: url('../images/gotomac.png');
+  display: none;
+}
+#gotomac:hover {
+  background: url('../images/gotomachover.png');
+}
+#stage0 {
+  width: 382px;
+  height: 486px;
+  margin-top: -263px;
+  margin-left: -191px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /*-webkit-transform: translateZ(-200px);*/
+  -webkit-transform-style: preserve-3d;
+}
+#stage2 {
+  width: 316px;
+  height: 430px;
+  position: absolute;
+  margin-top: -215px;
+  margin-left: -158px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform-style: preserve-3d;
+}
+#span2 {
+  position: absolute;
+  width: 600px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: 218px;
+  font-family: 微软雅黑;
+  font-size: 16px;
+  opacity: .7;
+  text-align: center;
+}
+#stage3 {
+  opacity: 0;
+  width: 530px;
+  height: 430px;
+  position: absolute;
+  margin-top: -195px;
+  margin-left: -265px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform-style: preserve-3d;
+  text-align: center;
+}
+#stage3 div {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+#title1_2 {
+  margin-top: 40px;
+}
+#page1 {
+  opacity: 0;
+  width: 381px;
+  height: 381px;
+  position: absolute;
+  margin-top: -240px;
+  margin-left: -190px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform-style: preserve-3d;
+}
+#page1 div {
+  width: 381px;
+  height: 381px;
+  position: absolute;
+}
+#btn2 {
+  margin-top: 30px;
+}
+#line1,
+#line2 {
+  background: url('images/lines.png');
+  width: 893px;
+  height: 403px;
+  top: 50%;
+  margin-top: -201px;
+  position: absolute;
+}
+#line2 {
+  -webkit-transform: rotate(180deg);
+  right: 0;
+}
+#layer0,
+#layer1,
+#layer2,
+#layer3,
+#layer4,
+#layer5 {
+  /*    margin-top: -191px;
+    margin-left: -243px;*/
+}
+#layer0 {
+  -webkit-transform: translateZ(0px);
+}
+#layer1 {
+  -webkit-transform: translateZ(1px);
+}
+#layer2 {
+  -webkit-transform: translateZ(-80px);
+}
+#layer3 {
+  -webkit-transform: translateZ(-60px);
+}
+#layer4 {
+  -webkit-transform: translateZ(-30px);
+}
+#layer5 {
+  -webkit-transform: translateZ(0px);
+}
+#add_links {
+  position: absolute;
+  bottom: 60px;
+  left: 20px;
+  font-size: 12px;
+  opacity: .7;
+  font-family: 微软雅黑;
+}
+#add_links span {
+  margin: 0 5px;
+  opacity: 0.3;
+}
