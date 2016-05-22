@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>react-test4</title>
+	<script src="../lib/react.min.js"></script>
+	<script src="../lib/react-dom.min.js"></script>
+	<script src="../lib/browser.min.js"></script>
+	<script scr="../lib/jquery.min.js"></script>
+	
+</head>
+<body>
+	<div id="test"></div> 
+	<script type="text/babel">
+		// 注意，组件类的第一个字母必须大写，否则会报错，比如HelloMessage不能写成helloMessage。另外，组件类只能包含一个顶层标签，否则也会报错。
+		var HelloMsg = React.createClass({
+			render: function(){
+				return <h1>Hello, {this.props.name}</h1>;
+			}
+		});
+		ReactDOM.render(
+			<HelloMsg name="lizhigao" />,
+			document.getElementById('test')
+		);
+	</script>
+</body>
+</html>
