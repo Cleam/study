@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-cn">
+    <meta charset="UTF-8">
+    <title>绘制线条</title>
+</head>
+<body>
+<canvas id="canvas" style="border:1px solid #aaa;display:block;margin:50px auto;">
+    当前浏览器不支持Canvas，请更换浏览器后再试
+</canvas>
+
+<script>
+    window.onload = function(){
+        var canvas = document.getElementById("canvas");
+        canvas.width = 400;
+        canvas.height = 400;
+        // 获取绘图上下文
+        var ctx = canvas.getContext('2d');
+        // 设置绘制状态：从20,20 到 300,300
+        ctx.moveTo(20, 20);
+        ctx.lineTo(300, 300);
+        // 设置线条宽度
+        ctx.lineWidth = 10;
+        // 设置颜色
+        ctx.strokeStyle = '#00f';
+        // 绘制
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>
