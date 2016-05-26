@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>react-test3</title>
+	<script src="../lib/react.min.js"></script>
+	<script src="../lib/react-dom.min.js"></script>
+	<script src="../lib/browser.min.js"></script>
+	<script scr="../lib/jquery.min.js"></script>
+	
+</head>
+<body>
+	<div id="test"></div> 
+	<script type="text/babel">
+		var arr = [
+			<h1>Hello, World!</h1>,
+			<h2>React is awesome</h2>
+		];
+		ReactDOM.render(
+			<div>{arr}</div>,
+			document.getElementById('test')
+		);
+	</script>
+</body>
+</html>
