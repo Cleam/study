@@ -1,0 +1,25 @@
+{
+    "strict": true,
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "esversion": 3,
+    "forin": true,
+    "freeze": true,
+    "funcscope": true,
+    "maxdepth": 2,
+    "maxerr": 50,
+    "maxparams": 3,
+    "maxstatements": 4,
+    "undef": true,
+    "unused": true,
+    "browser": true,
+    "devel": [
+      "console": true,
+      "alert": true
+    ],
+    "globals": [
+      "jQuery": true,
+      "Zepto": true
+    ]
+}
