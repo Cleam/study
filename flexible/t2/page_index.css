@@ -1,0 +1,301 @@
+@charset "utf-8";
+
+/* reset */
+
+html,
+body {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-touch-callout: none;
+    -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
+    -o-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+body {
+    font-size: 62.5%;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Hiragino Sans GB", "Helvetica Neue", Helvetica, STHeiTi, "Microsoft Yahei", sans-serif;
+    color: #666666;
+    background-color: #fff;
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type=button],
+input[type=submit] {
+    cursor: pointer;
+}
+
+input[type=button] {
+    -webkit-appearance: none;
+    outline: none
+}
+
+input::-webkit-input-placeholder {
+    color: #F0F0F0;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #F0F0F0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+th {
+    text-align: inherit;
+}
+
+fieldset,
+img {
+    border: 0 none;
+}
+
+img {
+    vertical-align: middle;
+}
+
+abbr,
+acronym {
+    border: none;
+    font-variant: normal;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #D9D9D9;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit
+}
+
+button,
+input {
+    border: 0;
+    background: 0;
+    -webkit-appearance: none;
+    outline: 0
+}
+
+a {
+    -webkit-touch-callout: none;
+    text-decoration: none;
+    color: #666666;
+    outline: 0;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:focus,
+*:focus {
+    outline: none;
+}
+
+em,
+i {
+    font-style: normal
+}
+
+label {
+    cursor: pointer;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+/* page style */
+
+.news-title {
+    position: relative;
+    font-size: 0.426667rem;
+    margin: 0 0.4rem;
+    padding: 0.4rem 0 0.2rem;
+}
+
+.news-title h2 {
+    position: relative;
+    font-size: 20px;
+    color: #000;
+    padding-left: 0.213333rem;
+}
+
+[data-dpr="2"] .news-title h2 {
+    font-size: 40px
+}
+
+[data-dpr="3"] .news-title h2 {
+    font-size: 60px
+}
+
+.news-title h2 span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.08rem;
+    height: 100%;
+    background-color: #ee4b4b;
+}
+
+.news-title .more {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 0.426667rem;
+    line-height: 0.426667rem;
+    margin-top: -0.213333rem;
+    font-size: 16px;
+    color: #999;
+}
+
+[data-dpr="2"] .news-title .more {
+    font-size: 32px
+}
+
+[data-dpr="3"] .news-title .more {
+    font-size: 48px
+}
+
+.news-list {
+    margin: 0 0.4rem;
+    padding: 0 0 0.4rem;
+}
+
+.news-list .news-item {
+    position: relative;
+    padding-left: 0.24rem;
+    margin-top: 0.32rem;
+}
+
+.news-list .news-item:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.053333rem;
+    width: 0.106667rem;
+    height: 0.106667rem;
+    background-color: #000;
+    border-radius: 50%;
+}
+
+.news-list .news-item:first-child:before {
+    background-color: #ee4b4b;
+}
+
+.news-list .news-item a {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    line-height: 1.2;
+    color: #333;
+    font-size: 18px;
+}
+
+[data-dpr="2"] .news-list .news-item a {
+    font-size: 36px
+}
+
+[data-dpr="3"] .news-list .news-item a {
+    font-size: 54px
+}
+
+.news-list .news-item:first-child a {
+    color: #ee4b4b;
+}
