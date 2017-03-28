@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://115.159.36.96/tikizheng/flextest/demo.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>flexbox全兼容模板</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale = 1.0,shrink-to-fit=no,minimal-ui,">
+        <link rel="stylesheet" href="./flexbox_demos_files/reset.css">
+        <link rel="stylesheet" href="./flexbox_demos_files/flex-style.css">
+    </head>
+    <body>
+        <!-- 1.用flex做提示icon -->
+        <h3 style="margin:0">1.用flex做提示icon</h3>
+        <div class="flex-cont flex-info">
+            <i class="f-icon"></i>
+            <div class="flex-item s-word">
+                <p class="s-desc">Description,xxx</p>
+                <p class="s-desc">test,test,test,test,test,test,test，test.hitest,test,test,test,</p>
+                <p class="s-desc">test,test,test,test,test,test,test</p>
+            </div>
+        </div>
+        <div class="flex-cont flex-info flex-info-center">
+            <i class="f-icon"></i>
+            <div class="flex-item s-word">
+                <p class="s-desc">Description,xxx</p>
+                <p class="s-desc">test,test,test,test,test,test,test，test.hitest,test,test,test,</p>
+                <p class="s-desc">test,test,test,test,test,test,test</p>
+            </div>
+        </div>
+
+        <!-- 2.用flex做列表元素 -->
+        <h3 style="margin:0">2.用flex做列表元素</h3>
+        <ul>
+            <li>
+                <div class="flex-cont flex-simple">
+                    <div class="s-img"></div>
+                    <div class="flex-item s-word">
+                        <p class="s-tit">title</p>
+                        <p class="s-desc">description</p>
+                    </div>
+                    <i class="f-icon"></i>
+                </div>
+            </li>
+            <li>
+                <div class="flex-cont flex-simple">
+                    <div class="s-img"></div>
+                    <div class="flex-item s-word">
+                        <p class="s-tit">title</p>
+                    </div>
+                    <i class="f-icon"></i>
+                </div>
+            </li>
+            <li>
+                <div class="flex-cont flex-simple">
+                    <div class="flex-item s-word">
+                        <p class="s-tit">title</p>
+                        <p class="s-desc">description</p>
+                    </div>
+                    <i class="f-icon"></i>
+                </div>
+            </li>
+        </ul>
+        <h3>3.用flex做tab</h3>
+        <ul role="tablist" class="flex-cont flex-tab">
+                <li class="current">
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">title</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">title</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">long title</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">title</span>
+                    </a>
+                </li>
+        </ul>
+        <ul role="tablist" class="flex-cont flex-tab">
+                <li>
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">long title</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" role="tab">
+                        <span class="tab-title">title</span>
+                    </a>
+                </li>
+        </ul>
+        <h3>4.用flex做导航(只适合三个布局)</h3>
+        <div class="flex-cont flex-nav">
+            <button class="f-btn">btn</button>
+        <div class="nav-title">
+            <h2>The big title</h2>
+            <p>infomation</p>
+        </div>            
+            <button class="f-btn">btn</button>
+        </div> 
+        <h3>5.用flex做搜索条</h3>
+        <div class="flex-cont flex-search">
+            <span>Search</span>
+            <div class="input"><input type="text"></div>
+            <button class="f-btn">btn</button>
+        </div>
+        <div class="flex-cont flex-search">
+            <div class="input"><input type="text"></div>
+            <button class="f-btn">btn</button>
+        </div>
+        <div class="flex-cont flex-search">
+            <i class="f-icon"></i>
+            <div class="input"><input type="text"></div>
+            <button class="f-btn">btn</button>
+        </div>
+
+        <h3>6.用flex做垂直居中(单/多)</h3>
+        <div class="flex-cont flex-centerbox">
+            <div class="center-cont">
+                <h2>Title</h2>
+                <p>infomation </p>
+                <p>infomation </p>
+                <button class="f-btn">btn</button>
+            </div>
+        </div>
+        <div class="flex-cont flex-centerbox">
+            <div class="center-cont">
+                <h2>Title</h2>
+                <p>infomation </p>
+                <p>infomation </p>
+                <button class="f-btn">btn</button>
+            </div>
+            <div class="center-cont">
+                <h2>Title</h2>
+                <p>infomation </p>
+                <p>infomation </p>
+                <button class="f-btn">btn</button>
+            </div>
+        </div>
+       
+
+        <h3>7.用flex做垂直弹性布局</h3>
+        <div class="page">
+            <div class="flex-cont flex-ver">
+                <div class="nav-box">
+                    title
+                </div>
+                <div class=" flex-item cont-box">
+                    content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
+                    content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>content<br>
+                </div>
+                <div class="btn-box">
+                   <button class="f-btn">btn</button> 
+                </div>
+            </div>
+        </div>
+    
+
+
+</body></html>

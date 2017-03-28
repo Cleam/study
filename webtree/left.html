@@ -1,0 +1,677 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="shortcut icon" href="img/logo/logoicon.ico" type="image/x-icon">
+    <title>Datacenter</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="img/index.css" media="all">
+    <link rel="stylesheet" type="text/css" href="img/index3.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+    <script type="text/javascript" src="js/others/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/others/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/others/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="js/others/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="js/left.js"></script>
+    <style type="text/css">
+    #srfdataol.onChoos,
+    #qddataol.onChoos,
+    #minidataol.onChoos,
+    #kantudataol.onChoos,
+    #quyadataol.onChoos,
+    #huorongdataol.onChoos,
+    #rilidataol.onChoos,
+    #toutiaodataol.onChoos,
+    #pingguodataol.onChoos,
+    #pingguoqd_li.onChoos,
+    #uploaddataol.onChoos,
+    #toutiaopcol.onChoos,
+    #crawlerol.onChoos,
+    #pcarmyol.onChoos,
+    #myselfadol.onChoos,
+    #adptol.onChoos,
+    .li {
+        height: auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="menu l">
+        <ul>
+            <li class="icon1" id="srfdata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+					class="ng-binding">输入法</font></span>
+                </a>
+                <ol id="srfdataol">
+                    <li style="display: list-item; display: block;" id="basicdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="basicdata">
+                            <em>-</em>基础统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="softverdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="softverdata">
+                            <em>-</em>版本统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="srfjinpin_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfjinpin">
+                            <em>-</em>输入法竞品数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="rjjinpin_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="rjjinpin">
+                            <em>-</em>软件竞品数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="writetj_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="writetj">
+                            <em>-</em>手写统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;" id="writeonline_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="writeonline">
+                            <em>-</em>逍遥笔外部接口
+                        </a>
+                    </li>
+                    <li style="display: list-item;" id="binddata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="binddata">
+                            <em>-</em>捆绑数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;" id="currentdaybinddata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="currentdaybinddata">
+                            <em>-</em>当日捆绑实时数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;" id="showlocation_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="showlocation">
+                            <em>-</em>捆绑数据展示位
+                        </a>
+                    </li>
+                    <li style="display: list-item;display:block;" id="browser_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="browser">
+                            <em>-</em>默认浏览器数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="icon2" id="qddata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">输入法渠道数据</font></span>
+                </a>
+                <ol id="qddataol">
+                    <li style="display: list-item; display: block;" id="srfqd_quality_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfqd_quality">
+                            <em>-</em>输入法渠道质量分析
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="srfqd_all_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfqd_all">
+                            <em>-</em>输入法所有渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="srfqd_lx_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfqd_lx">
+                            <em>-</em>输入法李鑫渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="srfqd_7654_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfqd_7654">
+                            <em>-</em>输入法7654渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="softjp_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="softjp">
+                            <em>-</em>软件竞品渠道数据
+                        </a>
+                    </li>
+                    <!-- 2016-04-18 新增-->
+                    <li style="display: list-item; display: block;" id="srfdaydata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="srfdaydata">
+                            <em>-</em>输入法渠道版本数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="icon3" id="minidata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">迷你页</font></span>
+                </a>
+                <ol id="minidataol">
+                    <li style="display: list-item; display: block;" id="minidata_base_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="minidata_base">
+                            <em>-</em>基础统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="minidata_lanwei_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="minidata_lanwei">
+                            <em>-</em>栏位点击
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="minidata_pos_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="minidata_pos">
+                            <em>-</em>具体位置点击数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="minidata_url_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="minidata_url">
+                            <em>-</em>URL点击排序
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="minidata_map_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="minidata_map">
+                            <em>-</em>迷你页数据实时监控
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="icon4" id="kantudata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">看图王</font></span>
+                </a>
+                <ol id="kantudataol">
+                    <li style="display: list-item; display: block;" id="kantu_base_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kantu_base">
+                            <em>-</em>基础统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="ktqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="ktqd"> <em>-</em>看图所有渠道数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="icon5" id="quyadata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">快压</font></span>
+                </a>
+                <ol id="quyadataol">
+                    <li style="display: list-item;display: block;" id="kybase_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kybase">
+                            <em>-</em>整体数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kynewuser_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kynewuser">
+                            <em>-</em>新用户数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kyfreechannels_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyfreechannels">
+                            <em>-</em>免费渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kyexchange_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyexchange">
+                            <em>-</em>换量渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kypremiumuser_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kypremiumuser">
+                            <em>-</em>付费渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kybigchannel_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kybigchannel">
+                            <em>-</em>大渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kyversiondata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyversiondata">
+                            <em>-</em>版本数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kybinddata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kybinddata">
+                            <em>-</em>捆绑数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kyshowlocation_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyshowlocation">
+                            <em>-</em>捆绑数据展示位
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kyclickdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyclickdata">
+                            <em>-</em>用户点击数据
+                        </a>
+                    </li>
+                    <!-- 2016-01-06 新增 -->
+                    <li style="display: list-item;display: block;" id="kyuninstalldata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyuninstalldata">
+                            <em>-</em>用户卸载数据
+                        </a>
+                    </li>
+                    <!-- 2016-01-26 新增 -->
+                    <li style="display: list-item;display: block;" id="kyurlratedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyurlratedata">
+                            <em>-</em>长期收益类捆绑数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="kymd5code_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kymd5code">
+                            <em>-</em>MD5数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="kyjp_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyjp">
+                            <em>-</em>竞品数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="kyuserfb_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="kyuserfb">
+                            <em>-</em>用户分布数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!--  
+			<li class="icon6" id="huorongdata" style="display: block"><a
+				class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">火绒</font></span>
+			</a>
+				<ol id="huorongdataol">
+					<li style="display: list-item; display: block;" id="huorongbase_li">
+						<a class="ng-binding" href="javascript:void(0)" id="huorongbase">
+							<em>-</em>软件重合度
+					</a>
+					</li>
+				</ol></li>
+				-->
+            <li class="icon7" id="rilidata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">日历</font></span>
+                </a>
+                <ol id="rilidataol">
+                    <li style="display: list-item; display: block;" id="rili_base_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="rili_base">
+                            <em>-</em>基础统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="riliqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="riliqd">
+                            <em>-</em>日历所有渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="rili_softjp_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="rili_softjp">
+                            <em>-</em>竞品数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="rili_jpqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="rili_jpqd">
+                            <em>-</em>竞品渠道数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 东方头条 -->
+            <li class="icon2" id="toutiaodata" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">东方头条</font></span>
+                </a>
+                <ol id="toutiaodataol">
+                    <li style="display: list-item; display: block;" id="toutiao_base_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="toutiao_base">
+                            <em>-</em>H5实时统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="toutiao_day_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="toutiao_day">
+                            <em>-</em>H5每日数据详情
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="toutiao_perday_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="toutiao_perday">
+                            <em>-</em>H5每日数据统计
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block;" id="toutiao_det_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="toutiao_det">
+                            <em>-</em>H5每日渠道数据
+                        </a>
+                    </li>
+                    <!-- 2016-03-09新增 -->
+                    <li style="display: list-item; display: block;" id="wapnewstreamdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="wapnewstreamdata">
+                            <em>-</em>H5新信息流统计
+                        </a>
+                    </li>
+                    <!-- 2016-01-18新增 -->
+                    <li style="display: list-item; display: block;" id="wapstreamdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="wapstreamdata">
+                            <em>-</em>H5信息流统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="dfttzd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="dfttzd">
+                            <em>-</em>H5终端数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="qdrecommend_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="qdrecommend">
+                            <em>-</em>H5渠道推荐数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="qdrealtimedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="qdrealtimedata">
+                            <em>-</em>H5今日渠道数据
+                        </a>
+                    </li>
+                    <!-- 20160608 -->
+                    <li style="display: list-item; display: block;" id="waparea_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="waparea">
+                            <em>-</em>H5渠道地域分布
+                        </a>
+                    </li>
+                    <!-- 20160615 -->
+                    <li style="display: list-item; display: block;" id="h5apptg_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="h5apptg">
+                            <em>-</em>H5内页APP推广统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="newsshareread_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="newsshareread">
+                            <em>-</em>App分享与阅读分布
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="appbasedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="appbasedata">
+                            <em>-</em>App基础数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="accountshareandread_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="accountshareandread">
+                            <em>-</em>App账号分享阅读
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="apprest_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="apprest">
+                            <em>-</em>App每日活跃数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="appdayqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="appdayqd">
+                            <em>-</em>App每日渠道版本统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="appscore_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="appscore">
+                            <em>-</em>App积分监控统计
+                        </a>
+                    </li>
+                    <!-- 精准推送数据 -->
+                    <li style="display: list-item; display: block;" id="apppush_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="apppush">
+                            <em>-</em>App精准推送数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="appbutton_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="appbutton">
+                            <em>-</em>App按钮统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="videodata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="videodata">
+                            <em>-</em>视频每日数据统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="videoqid_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="videoqid">
+                            <em>-</em>视频每日渠道统计
+                        </a>
+                    </li>
+                    <!-- 视频top100 -->
+                    <li style="display: list-item; display: block;" id="videotop_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="videotop">
+                            <em>-</em>视频和美女实时TOP
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="newscheck_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="newscheck">
+                            <em>-</em>新闻审核监控
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 东方头条PC端 -->
+            <li class="icon2" id="toutiaopc" style="display: block;">
+                <a class="more_icon" href="javascript:void(0)">
+                    <span> <font class="ng-binding">东方头条PC端</font></span>
+                </a>
+                <ol id="toutiaopcol">
+                    <li style="display: list-item; display: block;" id="pcdaybasic_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcdaybasic">
+                            <em>-</em>PC每日实时数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcdaydet_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcdaydet">
+                            <em>-</em>PC每日数据详情
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcdaygather_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcdaygather">
+                            <em>-</em>PC每日数据统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcdayqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcdayqd">
+                            <em>-</em>PC每日渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcstreamdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcstreamdata">
+                            <em>-</em>PC信息流统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcclientdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcclientdata">
+                            <em>-</em>PC终端数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcqlrealtimedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcqlrealtimedata">
+                            <em>-</em>PC今日渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcareadata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcareadata">
+                            <em>-</em>PC渠道地域分布
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 东方头条特色站 PC端-->
+            <li class="icon2" id="pctese" style="display: block;">
+                <a class="more_icon" href="javascript:void(0)">
+                    <span> <font class="ng-binding">东方头条特色站</font></span>
+                </a>
+                <ol id="pcarmyol">
+                    <li style="display: list-item; display: block;" id="pcarmydaybasic_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcarmydaybasic">
+                            <em>-</em>军事站每日实时数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcarmydaydet_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcarmydaydet">
+                            <em>-</em>军事站每日数据详情
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcarmydaygather_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcarmydaygather">
+                            <em>-</em>军事站每日数据统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcarmydayqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcarmydayqd">
+                            <em>-</em>军事站每日渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pcarmyclientdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcarmyclientdata">
+                            <em>-</em>军事站终端数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pclieqidaybasic_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pclieqidaybasic">
+                            <em>-</em>猎奇站每日实时数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pclieqidaydet_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pclieqidaydet">
+                            <em>-</em>猎奇站每日数据详情
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pclieqidaygather_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pclieqidaygather">
+                            <em>-</em>猎奇站每日数据统计
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pclieqidayqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pclieqidayqd">
+                            <em>-</em>猎奇站每日渠道数据
+                        </a>
+                    </li>
+                    <li style="display: list-item; display: block;" id="pclieqiclientdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pclieqiclientdata">
+                            <em>-</em>猎奇站终端数据
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 51苹果助手 -->
+            <li class="icon8" id="pingguozhushou" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">51苹果助手</font></span>
+                </a>
+                <ol id="pingguodataol">
+                    <li style="display: list-item;display: block" id="pingguo_base_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pingguo_base">
+                            <em>-</em>基础统计数据
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="pingguoqd_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pingguoqd">
+                            <em>-</em>苹果所有渠道数据
+                        </a>
+                    </li>
+                    <li style="display:list-item;display:block" id="pgqdhuizong_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pgqdhuizong">
+                            <em>-</em>H5各渠道汇总数据
+                        </a>
+                    </li>
+                    <li style="display:list-item;display:block" id="pgqdownloadlist_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pgqdownloadlist">
+                            <em>-</em>APP应用下载统计
+                        </a>
+                    </li>
+                    <li style="display:list-item;display:block" id="pgqdownloadtop_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pgqdownloadtop">
+                            <em>-</em>APP应用下载量排名
+                        </a>
+                    </li>
+                    <li style="display:list-item;display:block" id="pgqdtoday_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pgqdtoday">
+                            <em>-</em>H5用户留存率
+                        </a>
+                    </li>
+                    <li style="display:list-item;display:block" id="pgother_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pgother">
+                            <em>-</em>其他H5统计
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 嵩恒渠道数据上传 -->
+            <li class="icon2" id="upload" style="display: block">
+                <a class="more_icon" href="javascript:void(0)"> <span> <font
+						class="ng-binding">上海嵩恒  </font>
+				</span>
+                </a>
+                <ol id="uploaddataol">
+                    <li style="display: list-item;display: block" id="csvupload_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="csvupload">
+                            <em>-</em>西游网盟
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="wapincomedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="wapincomedata">
+                            <em>-</em>H5广告收入统计
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="pcincomedata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="pcincomedata">
+                            <em>-</em>PC广告收入统计
+                        </a>
+                    </li>
+                    <li style="display: list-item;display: block" id="h5adshow_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="h5adshow">
+                            <em>-</em>H5广告展现率统计
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 自己联盟 -->
+            <li class="icon2" id="myselfadincome" style="display: block">
+                <a class="more_icon" href="javascript:void(0)">
+                    <span> <font class="ng-binding">m021统计</font></span>
+                </a>
+                <ol id="myselfadol">
+                    <li style="display: list-item;display: block" id="wapincomem021data_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="wapincomem021data">
+                            <em>-</em>m021广告收入统计
+                        </a>
+                    </li>
+                    <!-- M021 导航 -->
+                    <li style="display: list-item;display: block" id="m021dhdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="m021dhdata">
+                            <em>-</em>m021导航统计
+                        </a>
+                    </li>
+                    <!-- WPS 导航 -->
+                    <li style="display: list-item;display: block" id="wpsdhdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="wpsdhdata">
+                            <em>-</em>WPS导航统计
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 爬虫监控 -->
+            <li class="icon2" id="crawler" style="display: block">
+                <a class="more_icon" href="javascript:void(0)">
+                    <span> <font class="ng-binding">爬虫监控</font></span>
+                </a>
+                <ol id="crawlerol">
+                    <li style="display: list-item;display: block" id="crawlerdata_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="crawlerdata">
+                            <em>-</em>爬虫监控统计
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <!-- 广告平台 -->
+            <li class="icon2" id="adpt" style="display: block">
+                <a class="more_icon" href="javascript:void(0)">
+                    <span> <font class="ng-binding">广告平台</font></span>
+                </a>
+                <ol id="adptol">
+                    <li style="display: list-item;display: block" id="adptcount_li">
+                        <a class="ng-binding" href="javascript:void(0)" id="adptcount">
+                            <em>-</em>投放广告统计
+                        </a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <!-- <div class="iframe-wrap">
+    	<iframe id="iframepage" src="" frameborder="0"></iframe>
+    </div> -->
+</body>
+
+</html>

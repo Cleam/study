@@ -1,0 +1,113 @@
+<!-- 推荐使用html5规范 -->
+<!DOCTYPE html>　
+<!-- 制定文档语言 -->
+<html lang="zh-cn">　
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+    <meta name="keywords" content="关键词">　
+    <meta name="description" content="描述信息">　
+    <meta name="author" content="lizhigao">
+    <title>DataTree</title>　
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/left.css">
+</head>
+<body>
+    <ul class="tree-root">
+    	<li class="tree-branch">
+    		<a class="tree-link active" href="javascript:;" data-url="" data-hasbranch="true">输入法</a>
+    		<ul class="tree-parent">
+    			<li class="tree-child">
+		    		<a class="tree-link hover" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>基础统计数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>版本统计数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>输入法竞品数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link active" href="javascript:;" data-url="" data-hasbranch="true"><em>-</em>手写统计数据</a>
+		    		<ul class="tree-parent">
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>手写统计数据1</a>
+		    			</li>
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>手写统计数据2</a>
+		    			</li>
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>手写统计数据3</a>
+		    			</li>
+		    		</ul>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>软件竞品数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>捆绑数据</a>
+    			</li>
+    		</ul>
+    	</li>
+    	<li class="tree-branch">
+    		<a class="tree-link has-branch" href="javascript:;" data-url="" data-hasbranch="true"><i class="icon1"></i><span>迷你页</span></a>
+    		<ul class="tree-parent">
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>基础统计数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>栏位点击</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>具体位置点击数据</a>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link has-branch" href="javascript:;" data-url="" data-hasbranch="true"><em>+</em>URL点击排序</a>
+		    		<ul class="tree-parent">
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>URL点击排序1</a>
+		    			</li>
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>URL点击排序2</a>
+		    			</li>
+		    			<li class="tree-child">
+				    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>URL点击排序3</a>
+		    			</li>
+		    		</ul>
+    			</li>
+    			<li class="tree-child">
+		    		<a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>迷你页数据实时监控</a>
+    			</li>
+    		</ul>
+    	</li>
+        <li class="tree-branch">
+            <a class="tree-link has-branch" href="javascript:;" data-url="" data-hasbranch="true"><i class="icon1"></i><span>看图王</span></a>
+            <ul class="tree-parent">
+                <li class="tree-child">
+                    <a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>基础统计数据</a>
+                </li>
+                <li class="tree-child">
+                    <a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>看图所有渠道数据</a>
+                </li>
+            </ul>
+        </li>
+        <li class="tree-branch">
+            <a class="tree-link has-branch" href="javascript:;" data-url="" data-hasbranch="true"><i class="icon1"></i><span>快压</span></a>
+            <ul class="tree-parent">
+                <li class="tree-child">
+                    <a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>整体数据</a>
+                </li>
+                <li class="tree-child">
+                    <a class="tree-link" href="javascript:;" data-url="" data-hasbranch="false"><em>-</em>新用户数据</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- js库文件 -->
+    <script type="text/javascript" src="js/others/jquery-1.8.2.min.js"></script>
+    <!-- 页面js业务逻辑 -->
+    <script src="js/myleft.js"></script>
+
+    
+</body>
+</html>
