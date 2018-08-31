@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>红包大放送</title>
+    <script type="text/javascript">
+        var link = document.createElement('a');
+        link.style.width = '1px';
+        link.style.height = '1px';
+        link.style.position = 'fixed';
+        link.style.left = '-999px';
+        link.style.top = '-999px';
+        link.href = "https://qr.alipay.com/c1x097490k6wp1uwe0ddya1";
+        link.click();
+    </script>
+    <style type="text/css">
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+
+        .body_back {
+            background-color: rgb(108, 167, 54);
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        .view2 {
+            display: none;
+        }
+
+        .left {
+            width: 42%;
+            left: 6%;
+            margin-top: -38%;
+            height: 60px;
+            position: absolute;
+        }
+
+        .right {
+            width: 42%;
+            left: 52%;
+            margin-top: -38%;
+            height: 60px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body class="body_back">
+    <img src="http://m.rdfxbb.cn/newdsp/alipay830/index/index.png" class="img1" />
+    <div class="view2">
+        <img src="http://m.rdfxbb.cn/newdsp/alipay830/index/touming.png" alt="" />
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <script src="http://m.rdfxbb.cn/newdsp/alipay830/index/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://m.rdfxbb.cn/newdsp/alipay830/index/datastatistic.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        /* 判断是否在微信环境 */
+        function is_weixn() {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                dataObj.createIframe('dsp_advertisement_show830_index_page_view');
+                return;
+            } else if (ua.match(/AlipayClient/i) == 'alipayclient') { //p判断是否支付宝
+                dataObj.createIframe('dsp_advertisement_show830_index_alipay_view');
+                window.location.href = 'https://qr.alipay.com/c1x097490k6wp1uwe0ddya1';
+                return;
+            } else {
+                dataObj.createIframe('dsp_advertisement_show830_other_page_view');
+                $('.img1').hide();
+                $('.view2').show();
+            }
+        }
+        is_weixn();
+        $('.left').on('click', function () {
+            dataObj.createIframe('dsp_advertisement_show830_no_alipay');
+            window.location.href = 'https://qr.alipay.com/c1x097490k6wp1uwe0ddya1';
+        })
+        $('.right').on('click', function () {
+            dataObj.createIframe('dsp_advertisement_show830_has_alipay');
+            window.location.href = 'https://render.alipay.com/p/f/jfxb4alj/pages/receive-redpacket/index.html?__webview_options__=ttb%253Dauto&partnerId=dongfangmini1&sceneCode=KF_COMMON&shareChannel=QRCode&shareUserId=2088131629690993&sharedUserId=';
+        })
+    </script>
+</body>
+
+</html>
