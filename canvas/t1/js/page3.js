@@ -6,11 +6,12 @@
     this.canvasHeight = opts.canvasHeight;
     this.canvas.width = this.canvasWidth;
     this.canvas.height = this.canvasHeight;
-    this.RADIUS = opts.radius || 50;
+    this.radius = opts.radius === undefined ? 50 : opts.radius;
+
     this.clippingRegion = opts.clippingRegion && {
       x: opts.clippingRegion.x || 50,
       y: opts.clippingRegion.y || 50,
-      r: this.RADIUS
+      r: this.radius
     };
     this.loadImg(opts.imgsrc);
   }
@@ -28,9 +29,9 @@
     },
     init: function() {
       this.draw(this.ctx, this.img, {
-        x: Math.random() * (this.canvasWidth - 2 * this.RADIUS) + this.RADIUS,
-        y: Math.random() * (this.canvasHeight - 2 * this.RADIUS) + this.RADIUS,
-        r: this.RADIUS
+        x: Math.random() * (this.canvasWidth - 2 * this.radius) + this.radius,
+        y: Math.random() * (this.canvasHeight - 2 * this.radius) + this.radius,
+        r: this.radius
       });
     },
     draw: function() {
@@ -64,7 +65,9 @@
         _this.clippingRegion.r += 20;
         if (
           _this.clippingRegion.r >
-          2 * Math.max(_this.canvasWidth, _this.canvasHeight)
+          Math.sqrt(
+            Math.pow(_this.canvasWidth, 2) + Math.pow(_this.canvasHeight, 2)
+          )
         ) {
           _this.timer && clearInterval(_this.timer);
           callback && callback();
@@ -82,20 +85,14 @@
   $(function() {
     var canvas1 = document.getElementById('canvas1');
     var canvas2 = document.getElementById('canvas2');
+    var curCanvas = null;
     var c1 = new MyCanvas({
       canvas: canvas1,
       canvasWidth: 400,
       canvasHeight: 300,
-      radius: 20,
+      radius: 0,
       imgsrc: 'img/xs.jpg'
     });
-    $('#J_change1').on('click', function() {
-      c1.expand(function() {
-        canvas1.style.zIndex = 1;
-        canvas2.style.zIndex = 2;
-      });
-    });
-
     var c2 = new MyCanvas({
       canvas: canvas2,
       canvasWidth: 400,
@@ -104,20 +101,41 @@
         x: 400 - 50,
         y: 300 - 50
       },
-      radius: 20,
+      radius: 0,
       imgsrc: 'img/ms.jpg'
     });
-    $('#J_change2').on('click', function() {
-      c2.expand(function() {
-        canvas1.style.zIndex = 2;
-        canvas2.style.zIndex = 1;
-        c1.clippingRegion = {
+    $('#J_change1').on('click', function() {
+      var isC1 = !curCanvas || curCanvas === c1 ? true : false;
+      var nextCanvas = null;
+      var clippingRegion = null;
+      var frontCanvasDom = null;
+      var backCanvasDom = null;
+      if (isC1) {
+        curCanvas = c2;
+        nextCanvas = c1;
+        frontCanvasDom = canvas2;
+        backCanvasDom = canvas1;
+        clippingRegion = {
           x: 50,
-          y: 50
+          y: 50,
+          r: 0
         };
-        console.log('c1::', c1);
-
-        c1.reset();
+      } else {
+        curCanvas = c1;
+        nextCanvas = c2;
+        frontCanvasDom = canvas1;
+        backCanvasDom = canvas2;
+        clippingRegion = {
+          x: 400 - 50,
+          y: 300 - 50,
+          r: 0
+        };
+      }
+      curCanvas.expand(function() {
+        frontCanvasDom.style.zIndex = 1;
+        backCanvasDom.style.zIndex = 2;
+        nextCanvas.clippingRegion = clippingRegion;
+        nextCanvas.reset();
       });
     });
   });
