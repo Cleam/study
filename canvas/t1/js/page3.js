@@ -62,7 +62,7 @@
     expand: function(callback) {
       var _this = this;
       _this.timer = setInterval(function() {
-        _this.clippingRegion.r += 20;
+        _this.clippingRegion.r += 5;
         if (
           _this.clippingRegion.r >
           Math.sqrt(
@@ -73,7 +73,22 @@
           callback && callback();
         }
         _this.draw();
-      }, 30);
+      }, 10);
+    },
+    expandSteps: function(px, cb) {
+      console.log('px::', px);
+
+      this.clippingRegion.r += px;
+      if (
+        this.clippingRegion.r >
+        Math.sqrt(
+          Math.pow(this.canvasWidth, 2) + Math.pow(this.canvasHeight, 2)
+        )
+      ) {
+        cb && cb();
+      } else {
+        this.draw();
+      }
     },
     reset: function() {
       if (this.timer) {
@@ -83,8 +98,9 @@
     }
   };
   $(function() {
-    var canvas1 = document.getElementById('canvas1');
-    var canvas2 = document.getElementById('canvas2');
+    var $canvasWrap = $('#J_canvas_wrap');
+    var canvas1 = $('#canvas1')[0];
+    var canvas2 = $('#canvas2')[0];
     var curCanvas = null;
     var c1 = new MyCanvas({
       canvas: canvas1,
@@ -104,39 +120,82 @@
       radius: 0,
       imgsrc: 'img/ms.jpg'
     });
-    $('#J_change1').on('click', function() {
-      var isC1 = !curCanvas || curCanvas === c1 ? true : false;
-      var nextCanvas = null;
-      var clippingRegion = null;
-      var frontCanvasDom = null;
-      var backCanvasDom = null;
-      if (isC1) {
-        curCanvas = c2;
-        nextCanvas = c1;
-        frontCanvasDom = canvas2;
-        backCanvasDom = canvas1;
-        clippingRegion = {
-          x: 50,
-          y: 50,
-          r: 0
-        };
+    // $('#J_change1').on('click', function() {
+    //   var isC1 = !curCanvas || curCanvas === c1 ? true : false;
+    //   var nextCanvas = null;
+    //   var clippingRegion = null;
+    //   var frontCanvasDom = null;
+    //   var backCanvasDom = null;
+    //   if (isC1) {
+    //     curCanvas = c2;
+    //     nextCanvas = c1;
+    //     frontCanvasDom = canvas2;
+    //     backCanvasDom = canvas1;
+    //     clippingRegion = {
+    //       x: 50,
+    //       y: 50,
+    //       r: 0
+    //     };
+    //   } else {
+    //     curCanvas = c1;
+    //     nextCanvas = c2;
+    //     frontCanvasDom = canvas1;
+    //     backCanvasDom = canvas2;
+    //     clippingRegion = {
+    //       x: 400 - 50,
+    //       y: 300 - 50,
+    //       r: 0
+    //     };
+    //   }
+    //   curCanvas.expand(function() {
+    //     frontCanvasDom.style.zIndex = 1;
+    //     backCanvasDom.style.zIndex = 2;
+    //     nextCanvas.clippingRegion = clippingRegion;
+    //     nextCanvas.reset();
+    //   });
+    // });
+
+    var p = 0;
+    var t = 0;
+
+    $(window).on('scroll', function(e) {
+      var current = c2;
+      var winScrollTop = $(window).scrollTop();
+      var winHeight = $(window).height();
+      var canvasOffsetTop = $canvasWrap.offset().top;
+      var canvasHeight = $canvasWrap.height();
+      var isScrollUp = true;
+      p = $(this).scrollTop();
+      if (t <= p) {
+        isScrollUp = true;
       } else {
-        curCanvas = c1;
-        nextCanvas = c2;
-        frontCanvasDom = canvas1;
-        backCanvasDom = canvas2;
-        clippingRegion = {
-          x: 400 - 50,
-          y: 300 - 50,
-          r: 0
-        };
+        isScrollUp = false;
       }
-      curCanvas.expand(function() {
-        frontCanvasDom.style.zIndex = 1;
-        backCanvasDom.style.zIndex = 2;
-        nextCanvas.clippingRegion = clippingRegion;
-        nextCanvas.reset();
-      });
+      if (
+        isScrollUp &&
+        winScrollTop + winHeight > canvasOffsetTop + canvasHeight &&
+        winScrollTop < canvasOffsetTop
+      ) {
+        current.expandSteps(10, function() {
+          current = c1;
+          c2.style.zIndex = 1;
+          c1.style.zIndex = 2;
+          // nextCanvas.clippingRegion = clippingRegion;
+        });
+      } else if (
+        !isScrollUp &&
+        winScrollTop < canvasOffsetTop &&
+        winScrollTop + winHeight > canvasOffsetTop + canvasHeight
+      ) {
+        current.expandSteps(-10, function() {
+          current = c2;
+          c1.style.zIndex = 1;
+          c2.style.zIndex = 2;
+        });
+      }
+      setTimeout(function() {
+        t = p;
+      }, 0);
     });
   });
 })();
